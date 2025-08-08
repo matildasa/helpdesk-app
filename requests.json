@@ -1,0 +1,38 @@
+[
+    {
+        "name": "severiina",
+        "note": "laundry",
+        "time": "2025-08-04 23:58",
+        "status": "open"
+    },
+    {
+        "name": "severiina",
+        "note": "laundry",
+        "time": "2025-08-04 23:59",
+        "status": "done"
+    },
+    {
+        "name": "ernesti",
+        "note": "everything",
+        "time": "2025-08-05 00:00",
+        "status": "done"
+    },
+    {
+        "name": "ernesti",
+        "note": "food",
+        "time": "2025-08-05 00:03",
+        "status": "done"
+    },
+    {
+        "name": "Ernesti",
+        "note": "food",
+        "time": "2025-08-06 00:35",
+        "status": "done"
+    },
+    {
+        "name": "ernesti",
+        "note": "food",
+        "time": "2025-08-08 13:30",
+        "status": "open"
+    }
+]

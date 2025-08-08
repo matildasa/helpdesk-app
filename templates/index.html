@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+  <title>Helpdesk Request</title>
+  <style>
+    body {
+      background-color: #ffe0f0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      padding: 40px;
+      color: #333;
+    }
+
+    h1 {
+      color: #d63384;
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px solid #d63384;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #d63384;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .request {
+      background: #fff;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 10px;
+      border-left: 6px solid #d63384;
+    }
+
+    .timestamp {
+      color: gray;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+   <div style="width: 100%; padding: 10px; background-color: #121212;">
+  <span style="color:#00bbf9; font-weight: bold;">Welcome, {{ user }}!</span>
+  <a href="{{ url_for('logout') }}" style="color:#00fa79; float:right; margin:10px;">Logout</a>
+</div>
+ 
+  <h1>Hi {{ user }}!</h1>
+
+  <form method="POST">
+    <label>Your name:</label>
+    <input type="text" name="name" required>
+
+    <label>What do you need help with?</label>
+    <textarea name="note" required></textarea>
+
+    <button type="submit">Send Request</button>
+  </form>
+
+  <h2>Your requests</h2>
+  {% for r in requests %}
+    <div class="request">
+      <p><strong>{{ r.note }}</strong></p>
+      <p class="timestamp">{{ r.timestamp }} - Status: {{ r.status }}</p>
+    </div>
+  {% else %}
+    <p>No requests yet.</p>
+  {% endfor %}
+</body>
+</html>
+

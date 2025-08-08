@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <style>
+    body {
+      background-color: #fff0f6;
+      font-family: 'Comic Sans MS', cursive;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #c400fa;
+    }
+
+    .request {
+      background: #fff;
+      padding: 15px;
+      margin: 15px 0;
+      border-left: 6px solid #c400fa;
+      border-radius: 10px;
+    }
+
+    .timestamp {
+      color: gray;
+      font-size: 0.9em;
+    }
+
+    .done-button {
+      margin-top: 10px;
+      background-color: #c400fa;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+   <div style="width: 100%; padding: 10px; background-color: #121212;">
+  <span style="color:#00bbf9; font-weight: bold;">Admin: {{ user }}</span>
+  <a href="{{ url_for('logout') }}" style="color:#00fa79; float:right; margin:10px;">Logout</a>
+</div>
+ 
+  <h1>Admin View</h1>
+  {% for r in requests %}
+    <div class="request">
+      <strong>{{ r.name }}</strong>: {{ r.note }}
+      <div class="timestamp">{{ r.timestamp }} — Status: {{ r.status }}</div>
+      {% if r.status != "done" %}
+        <a href="{{ url_for('mark_done', request_id=loop.index0, user=user) }}">
+          <button class="done-button">Mark Done</button>
+        </a>
+      {% endif %}
+    </div>
+  {% endfor %}
+</body>
+</html>

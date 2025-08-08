@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Helpdesk</title>
+    <style>
+        body { background-color: #121212; color: #00bbf9; font-family: Arial, sans-serif; }
+        .login-box {
+            width: 300px; margin: 100px auto; padding: 20px; background: #495057; border-radius: 8px;
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 90%; padding: 10px; margin: 10px 0; font-size: 18px; border-radius: 5px; border: none;
+        }
+        button {
+            width: 100%; padding: 10px; background: #00fa79; border: none; font-size: 18px; border-radius: 5px;
+            color: white; cursor: pointer;
+        }
+        button:hover {
+            background: white; color: #00fa79; transition: 0.5s;
+        }
+        .flash-message {
+            margin: 10px 0; color: #ff6666;
+        }
+    </style>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul style="color: red;">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+    <div class="login-box">
+        <h2>Login</h2>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="flash-message">
+              {{ messages[0] }}
+            </div>
+          {% endif %}
+        {% endwith %}
+        <form method="POST">
+            <input type="text" name="username" placeholder="Enter your username" autofocus required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

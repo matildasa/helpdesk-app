@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+  <title>Request Help</title>
+  <style>
+    body {
+      background-color: #ffe6f0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #ff3399;
+    }
+
+    form {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      display: inline-block;
+      box-shadow: 0px 0px 10px #ffb3cc;
+    }
+
+    input, textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      border: 2px solid #ff99cc;
+      border-radius: 10px;
+    }
+
+    button {
+      background-color: #ff66a3;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e60073;
+    }
+  </style>
+</head>
+<body>
+  <h1>Need Help?</h1>
+  <form method="POST" action="/submit">
+    <input type="text" name="name" placeholder="Your name" required>
+    <textarea name="message" placeholder="What's the issue?" required></textarea>
+    <input type="text" name="note" placeholder="Optional note (room #, etc)">
+    <button type="submit">Send Request</button>
+  </form>
+</body>
+</html>
